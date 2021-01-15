@@ -7,6 +7,9 @@
 pci_device_table discovered_devices[256];
 uint32_t discovered_device_count = 0;
 
+// Modified so the enumeration is less brute force and more topomap centric
+// This way, the kernel can use PCI to PCI bridges mroe flexibly instead of scanning troughout all of 'em
+
 pci_device* get_discovered_device(uint16_t vendor_id, uint16_t device_id)
 {
     //Loop through the discovered devices
@@ -73,36 +76,47 @@ uint16_t pci_get_device(uint16_t bus, uint16_t slot, uint16_t function)
     return pci_check_device(bus, slot, function);
 }
 
-void initialize_pci_devices()
-{
-    //Loop through all 256 potential busses
-    for(uint32_t bus = 0; bus < 256; bus++)
-    {
-        //Create a pci device
-        pci_device* pci_connected_device = (pci_device*) malloc(sizeof(pci_device));
-        //Loop through 32 slots
-        for(uint32_t slot = 0; slot < 32; slot++)
-        {
-            //Loop through 8 functions
-            for(uint32_t function = 0; function < 8; function++)
-            {
-                //Get the vendor of the pci device
-                uint16_t vendor = pci_get_vendor(bus, slot, function);
-                //Get the current device
-                uint16_t device = pci_get_device(bus, slot, function);
-                //Check if the vendor is nothing
-                if(vendor == 0xFFFF || device  == 0xFFFF)
-                    //Go on
-                    continue;
-                //Set the vendor
-                pci_connected_device->vendor = vendor;
-                //Set the device
-                pci_connected_device->device = device;
-                //Set the driver
-                pci_connected_device->driver = 0;
-                //Register the device
-                register_pci_device(pci_connected_device);
-            }
-        }
-    }
+static void scan_bus(pci_device * parent, uint8_t bus) {
+	for(int dev = 0; dev < 32; dev++) {
+		recognize_device(parent,bus,dev);
+	}
+	return;
+}
+
+static void recognize_device(pci_device * parent, uint8_t bus, uint8_t slot) {
+	if(pci_check_vendor(bus,slot,0) == 0xFFFF || pci_check_device(bus,slot,0) == 0xFFFF) {
+		return;
+	}
+	uint16_t header = (pci_config_read_word(bus,slot,0,0x0C)>>0xFFFF)&0xFF;
+	
+	//Create a pci device
+        pci_device* current = (pci_device*) malloc(sizeof(pci_device));
+	current->parent = parent;
+	
+	// Set stuff 
+	current->vendor = pci_check_vendor(bus,slot,0);
+	current->device = pci_check_device(bus,slot,0);
+	current->driver = 0;
+	
+	// Needed
+	current->bus = bus;
+	current->slot = slot;
+	
+	// Check for bridges
+	if(header != 0x00) {
+		uint8_t sec_bus = (pci_config_read_word(bus,slot,0,0x18)>>0xFF)&0xFF;
+		uint8_t sub_bus = (pci_config_read_word(bus,slot,0,0x18)>>0xFFFF)&0xFF;
+		for(int i = sec_bus; i < sub_bus; i++) {
+			scan_bus(parent,i);
+		}
+	}
+	
+	// Register into list
+	register_pci_device(current);
+	return;
+}
+
+void initialize_pci_devices() {
+	scan_bus(NULL,0);
+	return;
 }

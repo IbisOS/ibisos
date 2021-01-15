@@ -7,6 +7,13 @@ typedef struct
     int driver;
     uint32_t status, command;
     uint16_t bar0, bar1, bar2, bar3, bar4, bar5;
+    /* der "bus" und "slot" */
+	uint8_t bus;
+	uint8_t slot;
+	/* pci-to-pci bridge */
+	uint8_t start_bus; // SECONDARY
+	uint8_t end_bus; // SUBORDINATE
+	struct pci_device * parent; // PARENT DEVICE
 } pci_device;
 
 typedef struct
