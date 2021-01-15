@@ -1,6 +1,13 @@
 #ifndef PCI_H
 #define PCI_H
 #include <sys/portio.hpp>
+#define BAR0    0x10
+#define BAR1    0x14
+#define BAR2    0x18
+#define BAR3    0x1C
+#define BAR4    0x20
+#define BAR5    0x24
+
 typedef struct
 {
     uint16_t vendor, device;
@@ -21,5 +28,11 @@ uint16_t pci_check_vendor(uint16_t bus, uint16_t slot);
 uint16_t pci_get_vendor(uint8_t bus, uint16_t slot, uint8_t function);
 uint16_t pci_check_device(uint16_t bus, uint16_t slot, uint16_t function);
 uint16_t pci_get_device(uint16_t bus, uint16_t slot, uint16_t function);
+uint16_t pci_get_bar0(uint16_t bus, uint16_t slot);
+uint16_t pci_get_bar1(uint16_t bus, uint16_t slot);
+uint16_t pci_get_bar2(uint16_t bus, uint16_t slot);
+uint16_t pci_get_bar3(uint16_t bus, uint16_t slot);
+uint16_t pci_get_bar4(uint16_t bus, uint16_t slot);
+uint16_t pci_get_bar5(uint16_t bus, uint16_t slot);
 void initialize_pci_devices();
 #endif
