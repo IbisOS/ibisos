@@ -8,6 +8,9 @@
 pci_device_table discovered_devices[296];
 uint32_t discovered_device_count = 0;
 
+// Modified so the enumeration is less brute force and more topomap centric
+// This way, the kernel can use PCI to PCI bridges mroe flexibly instead of scanning troughout all of 'em
+
 pci_device* get_discovered_device(uint16_t vendor_id, uint16_t device_id)
 {
     //Loop through the discovered devices
@@ -174,4 +177,48 @@ void initialize_pci_devices()
             }
         }
     }
+}
+static void scan_bus(pci_device * parent, uint8_t bus) {
+	for(int dev = 0; dev < 32; dev++) {
+		recognize_device(parent,bus,dev);
+	}
+	return;
+}
+
+static void recognize_device(pci_device * parent, uint8_t bus, uint8_t slot) {
+	if(pci_check_vendor(bus,slot,0) == 0xFFFF || pci_check_device(bus,slot,0) == 0xFFFF) {
+		return;
+	}
+	uint16_t header = (pci_config_read_word(bus,slot,0,0x0C)>>0xFFFF)&0xFF;
+	
+	//Create a pci device
+        pci_device* current = (pci_device*) malloc(sizeof(pci_device));
+	current->parent = parent;
+	
+	// Set stuff 
+	current->vendor = pci_check_vendor(bus,slot,0);
+	current->device = pci_check_device(bus,slot,0);
+	current->driver = 0;
+	
+	// Needed
+	current->bus = bus;
+	current->slot = slot;
+	
+	// Check for bridges
+	if(header != 0x00) {
+		uint8_t sec_bus = (pci_config_read_word(bus,slot,0,0x18)>>0xFF)&0xFF;
+		uint8_t sub_bus = (pci_config_read_word(bus,slot,0,0x18)>>0xFFFF)&0xFF;
+		for(int i = sec_bus; i < sub_bus; i++) {
+			scan_bus(parent,i);
+		}
+	}
+	
+	// Register into list
+	register_pci_device(current);
+	return;
+}
+
+void initialize_pci_devices() {
+	scan_bus(NULL,0);
+	return;
 }
