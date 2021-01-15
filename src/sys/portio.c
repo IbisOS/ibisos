@@ -47,3 +47,9 @@ inline void outl(uint16_t port, uint32_t value)
     //Toss the data to the port
     asm volatile("outl %0, %1" :: "a"(value), "dN"(port));
 }
+
+inline void outsw(uint16_t port, uint8_t* value)
+{
+    //Send the data to the port
+    asm volatile("rep outsw");
+}
