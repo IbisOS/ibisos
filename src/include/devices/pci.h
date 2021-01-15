@@ -8,7 +8,7 @@
 #define BAR4    0x20
 #define BAR5    0x24
 
-typedef struct
+struct pci_device
 {
     uint16_t vendor, device;
     int driver;
@@ -21,7 +21,7 @@ typedef struct
 	uint8_t start_bus; // SECONDARY
 	uint8_t end_bus; // SUBORDINATE
 	struct pci_device * parent; // PARENT DEVICE
-} pci_device;
+};
 
 typedef struct
 {

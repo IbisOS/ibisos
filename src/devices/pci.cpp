@@ -114,92 +114,27 @@ uint16_t pci_get_bar5(uint16_t bus, uint16_t slot)
 }
 
 
-void initialize_pci_devices()
-{
-    //Loop through all 256 potential busses
-    for(uint32_t bus = 0; bus < 256; bus++)
-    {
-        //Create a pci device
-        pci_device* pci_connected_device = (pci_device*) malloc(sizeof(pci_device));
-        //Loop through 32 slots
-        for(uint32_t slot = 0; slot < 32; slot++)
-        {
-            //Get bar0
-            uint16_t bar0 = pci_get_bar0(bus, slot);
-            //Get bar1
-            uint16_t bar1 = pci_get_bar1(bus, slot);
-            //Get bar2
-            uint16_t bar2 = pci_get_bar2(bus, slot);
-            //Get bar3
-            uint16_t bar3 = pci_get_bar3(bus, slot);
-            //Get uint16_t
-            uint16_t bar4 = pci_get_bar4(bus, slot);
-            //Get bar5
-            uint16_t bar5 = pci_get_bar5(bus, slot);
-            //Loop through 8 functions
-            for(uint32_t function = 0; function < 8; function++)
-            {
-                //Get the vendor of the pci device
-                uint16_t vendor = pci_get_vendor(bus, slot, function);
-                //Get the current device
-                uint16_t device = pci_get_device(bus, slot, function);
-                //Check if the vendor, device, or base register addresses are nothing
-                if(vendor == 0xFFFF || 
-                    device  == 0xFFFF || 
-                    bar0 == 0xFFFF ||
-                    bar1 == 0xFFFF || 
-                    bar2 == 0xFFFF || 
-                    bar3 == 0xFFFF || 
-                    bar4 == 0xFFFF || 
-                    bar5 == 0xFFFF)
-                    //Go on
-                    continue;
-                //Set the vendor
-                pci_connected_device->vendor = vendor;
-                //Set the device
-                pci_connected_device->device = device;
-                //Set the driver
-                pci_connected_device->driver = 0;
-                //Set bar0
-                pci_connected_device->bar0 = bar0;
-                //Set bar1
-                pci_connected_device->bar1 = bar1;
-                //Set bar2
-                pci_connected_device->bar2 = bar2;
-                //Set bar3
-                pci_connected_device->bar3 = bar3;
-                //Set bar4
-                pci_connected_device->bar4 = bar4;
-                //Set bar5
-                pci_connected_device->bar5 = bar5;
-                //Register the device
-                register_pci_device(pci_connected_device);
-            }
-        }
-    }
-}
-static void scan_bus(pci_device * parent, uint8_t bus) {
-	for(int dev = 0; dev < 32; dev++) {
-		recognize_device(parent,bus,dev);
-	}
-	return;
-}
-
 static void recognize_device(pci_device * parent, uint8_t bus, uint8_t slot) {
-	if(pci_check_vendor(bus,slot,0) == 0xFFFF || pci_check_device(bus,slot,0) == 0xFFFF) {
+	if(pci_get_vendor(bus,slot,0) == 0xFFFF || pci_get_device(bus,slot,0) == 0xFFFF) {
 		return;
 	}
 	uint16_t header = (pci_config_read_word(bus,slot,0,0x0C)>>0xFFFF)&0xFF;
 	
 	//Create a pci device
-        pci_device* current = (pci_device*) malloc(sizeof(pci_device));
+    pci_device* current = (pci_device*) malloc(sizeof(pci_device));
 	current->parent = parent;
 	
 	// Set stuff 
-	current->vendor = pci_check_vendor(bus,slot,0);
-	current->device = pci_check_device(bus,slot,0);
+	current->vendor = pci_get_vendor(bus,slot,0);
+	current->device = pci_get_device(bus,slot,0);
 	current->driver = 0;
-	
+    current->bar0 = pci_get_bar0(bus, slot);
+    current->bar1 = pci_get_bar1(bus, slot);
+    current->bar2 = pci_get_bar2(bus, slot);
+    current->bar3 = pci_get_bar3(bus, slot);
+    current->bar4 = pci_get_bar4(bus, slot);
+	current->bar5 = pci_get_bar5(bus, slot);
+
 	// Needed
 	current->bus = bus;
 	current->slot = slot;
@@ -215,6 +150,13 @@ static void recognize_device(pci_device * parent, uint8_t bus, uint8_t slot) {
 	
 	// Register into list
 	register_pci_device(current);
+	return;
+}
+
+static void scan_bus(pci_device * parent, uint8_t bus) {
+	for(int dev = 0; dev < 32; dev++) {
+		recognize_device(parent,bus,dev);
+	}
 	return;
 }
 
