@@ -41,5 +41,7 @@ uint16_t pci_get_bar2(uint16_t bus, uint16_t slot);
 uint16_t pci_get_bar3(uint16_t bus, uint16_t slot);
 uint16_t pci_get_bar4(uint16_t bus, uint16_t slot);
 uint16_t pci_get_bar5(uint16_t bus, uint16_t slot);
+void recognize_device(pci_device * parent, uint8_t bus, uint8_t slot);
+void scan_bus(pci_device * parent, uint8_t bus);
 void initialize_pci_devices();
 #endif

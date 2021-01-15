@@ -114,7 +114,7 @@ uint16_t pci_get_bar5(uint16_t bus, uint16_t slot)
 }
 
 
-static void recognize_device(pci_device * parent, uint8_t bus, uint8_t slot) {
+void recognize_device(pci_device * parent, uint8_t bus, uint8_t slot) {
 	if(pci_get_vendor(bus,slot,0) == 0xFFFF || pci_get_device(bus,slot,0) == 0xFFFF) {
 		return;
 	}
@@ -153,7 +153,7 @@ static void recognize_device(pci_device * parent, uint8_t bus, uint8_t slot) {
 	return;
 }
 
-static void scan_bus(pci_device * parent, uint8_t bus) {
+void scan_bus(pci_device * parent, uint8_t bus) {
 	for(int dev = 0; dev < 32; dev++) {
 		recognize_device(parent,bus,dev);
 	}
