@@ -348,32 +348,32 @@ minikernel/minikernel.cpp.s:
 	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/minikernel/minikernel.cpp.s
 .PHONY : minikernel/minikernel.cpp.s
 
-storage/ata.o: storage/ata.cpp.o
+string.o: string.cpp.o
 
-.PHONY : storage/ata.o
+.PHONY : string.o
 
 # target to build an object file
-storage/ata.cpp.o:
-	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/storage/ata.cpp.o
-.PHONY : storage/ata.cpp.o
+string.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/string.cpp.o
+.PHONY : string.cpp.o
 
-storage/ata.i: storage/ata.cpp.i
+string.i: string.cpp.i
 
-.PHONY : storage/ata.i
+.PHONY : string.i
 
 # target to preprocess a source file
-storage/ata.cpp.i:
-	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/storage/ata.cpp.i
-.PHONY : storage/ata.cpp.i
+string.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/string.cpp.i
+.PHONY : string.cpp.i
 
-storage/ata.s: storage/ata.cpp.s
+string.s: string.cpp.s
 
-.PHONY : storage/ata.s
+.PHONY : string.s
 
 # target to generate assembly for a file
-storage/ata.cpp.s:
-	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/storage/ata.cpp.s
-.PHONY : storage/ata.cpp.s
+string.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/string.cpp.s
+.PHONY : string.cpp.s
 
 sys/portio.o: sys/portio.c.o
 
@@ -510,6 +510,60 @@ vesa/vesa.cpp.s:
 	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/vesa/vesa.cpp.s
 .PHONY : vesa/vesa.cpp.s
 
+vfs/dev.o: vfs/dev.cpp.o
+
+.PHONY : vfs/dev.o
+
+# target to build an object file
+vfs/dev.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/vfs/dev.cpp.o
+.PHONY : vfs/dev.cpp.o
+
+vfs/dev.i: vfs/dev.cpp.i
+
+.PHONY : vfs/dev.i
+
+# target to preprocess a source file
+vfs/dev.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/vfs/dev.cpp.i
+.PHONY : vfs/dev.cpp.i
+
+vfs/dev.s: vfs/dev.cpp.s
+
+.PHONY : vfs/dev.s
+
+# target to generate assembly for a file
+vfs/dev.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/vfs/dev.cpp.s
+.PHONY : vfs/dev.cpp.s
+
+vfs/vfs.o: vfs/vfs.cpp.o
+
+.PHONY : vfs/vfs.o
+
+# target to build an object file
+vfs/vfs.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/vfs/vfs.cpp.o
+.PHONY : vfs/vfs.cpp.o
+
+vfs/vfs.i: vfs/vfs.cpp.i
+
+.PHONY : vfs/vfs.i
+
+# target to preprocess a source file
+vfs/vfs.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/vfs/vfs.cpp.i
+.PHONY : vfs/vfs.cpp.i
+
+vfs/vfs.s: vfs/vfs.cpp.s
+
+.PHONY : vfs/vfs.s
+
+# target to generate assembly for a file
+vfs/vfs.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/vfs/vfs.cpp.s
+.PHONY : vfs/vfs.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -544,9 +598,9 @@ help:
 	@echo "... minikernel/minikernel.o"
 	@echo "... minikernel/minikernel.i"
 	@echo "... minikernel/minikernel.s"
-	@echo "... storage/ata.o"
-	@echo "... storage/ata.i"
-	@echo "... storage/ata.s"
+	@echo "... string.o"
+	@echo "... string.i"
+	@echo "... string.s"
 	@echo "... sys/portio.o"
 	@echo "... sys/portio.i"
 	@echo "... sys/portio.s"
@@ -562,6 +616,12 @@ help:
 	@echo "... vesa/vesa.o"
 	@echo "... vesa/vesa.i"
 	@echo "... vesa/vesa.s"
+	@echo "... vfs/dev.o"
+	@echo "... vfs/dev.i"
+	@echo "... vfs/dev.s"
+	@echo "... vfs/vfs.o"
+	@echo "... vfs/vfs.i"
+	@echo "... vfs/vfs.s"
 .PHONY : help
 
 

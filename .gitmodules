@@ -1,3 +1,0 @@
-[submodule "src/vfs"]
-	path = src/vfs
-	url = https://github.com/IbisOS/IbisVFS
