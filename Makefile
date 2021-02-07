@@ -159,6 +159,33 @@ boot/interrupt.asm.o:
 	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/boot/interrupt.asm.o
 .PHONY : boot/interrupt.asm.o
 
+calloc/calloc.o: calloc/calloc.cpp.o
+
+.PHONY : calloc/calloc.o
+
+# target to build an object file
+calloc/calloc.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/calloc/calloc.cpp.o
+.PHONY : calloc/calloc.cpp.o
+
+calloc/calloc.i: calloc/calloc.cpp.i
+
+.PHONY : calloc/calloc.i
+
+# target to preprocess a source file
+calloc/calloc.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/calloc/calloc.cpp.i
+.PHONY : calloc/calloc.cpp.i
+
+calloc/calloc.s: calloc/calloc.cpp.s
+
+.PHONY : calloc/calloc.s
+
+# target to generate assembly for a file
+calloc/calloc.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/calloc/calloc.cpp.s
+.PHONY : calloc/calloc.cpp.s
+
 devices/pci.o: devices/pci.cpp.o
 
 .PHONY : devices/pci.o
@@ -185,6 +212,87 @@ devices/pci.s: devices/pci.cpp.s
 devices/pci.cpp.s:
 	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/devices/pci.cpp.s
 .PHONY : devices/pci.cpp.s
+
+devices/pci_common.o: devices/pci_common.cpp.o
+
+.PHONY : devices/pci_common.o
+
+# target to build an object file
+devices/pci_common.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/devices/pci_common.cpp.o
+.PHONY : devices/pci_common.cpp.o
+
+devices/pci_common.i: devices/pci_common.cpp.i
+
+.PHONY : devices/pci_common.i
+
+# target to preprocess a source file
+devices/pci_common.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/devices/pci_common.cpp.i
+.PHONY : devices/pci_common.cpp.i
+
+devices/pci_common.s: devices/pci_common.cpp.s
+
+.PHONY : devices/pci_common.s
+
+# target to generate assembly for a file
+devices/pci_common.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/devices/pci_common.cpp.s
+.PHONY : devices/pci_common.cpp.s
+
+devices/pci_default.o: devices/pci_default.cpp.o
+
+.PHONY : devices/pci_default.o
+
+# target to build an object file
+devices/pci_default.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/devices/pci_default.cpp.o
+.PHONY : devices/pci_default.cpp.o
+
+devices/pci_default.i: devices/pci_default.cpp.i
+
+.PHONY : devices/pci_default.i
+
+# target to preprocess a source file
+devices/pci_default.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/devices/pci_default.cpp.i
+.PHONY : devices/pci_default.cpp.i
+
+devices/pci_default.s: devices/pci_default.cpp.s
+
+.PHONY : devices/pci_default.s
+
+# target to generate assembly for a file
+devices/pci_default.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/devices/pci_default.cpp.s
+.PHONY : devices/pci_default.cpp.s
+
+fonts/psf.o: fonts/psf.cpp.o
+
+.PHONY : fonts/psf.o
+
+# target to build an object file
+fonts/psf.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/fonts/psf.cpp.o
+.PHONY : fonts/psf.cpp.o
+
+fonts/psf.i: fonts/psf.cpp.i
+
+.PHONY : fonts/psf.i
+
+# target to preprocess a source file
+fonts/psf.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/fonts/psf.cpp.i
+.PHONY : fonts/psf.cpp.i
+
+fonts/psf.s: fonts/psf.cpp.s
+
+.PHONY : fonts/psf.s
+
+# target to generate assembly for a file
+fonts/psf.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/fonts/psf.cpp.s
+.PHONY : fonts/psf.cpp.s
 
 graphics/graphics.o: graphics/graphics.cpp.o
 
@@ -577,9 +685,21 @@ help:
 	@echo "... boot/gdt.o"
 	@echo "... boot/idt.o"
 	@echo "... boot/interrupt.o"
+	@echo "... calloc/calloc.o"
+	@echo "... calloc/calloc.i"
+	@echo "... calloc/calloc.s"
 	@echo "... devices/pci.o"
 	@echo "... devices/pci.i"
 	@echo "... devices/pci.s"
+	@echo "... devices/pci_common.o"
+	@echo "... devices/pci_common.i"
+	@echo "... devices/pci_common.s"
+	@echo "... devices/pci_default.o"
+	@echo "... devices/pci_default.i"
+	@echo "... devices/pci_default.s"
+	@echo "... fonts/psf.o"
+	@echo "... fonts/psf.i"
+	@echo "... fonts/psf.s"
 	@echo "... graphics/graphics.o"
 	@echo "... graphics/graphics.i"
 	@echo "... graphics/graphics.s"

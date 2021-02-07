@@ -8,15 +8,22 @@ else
     export TARGET_BUILD="$1"
 fi
 
-if [ "$1" == "" ]
+if [ "$2" == "" ]
 then
     export TARGET_ARCH="i686"
 else
     export TARGET_ARCH="$1"
 fi
 
+if [ "$3" == "" ]
+then
+    export FONT_ARCH="i386"
+else
+    export FONT_ARCH="$3"
+fi
+
+objcopy -O $TARGET_BUILD -B $FONT_ARCH -I binary assets/font.psf font.o
 export TARGET_OUTPUT="output/$TARGET_BUILD"
-git pull https://github.com/IbisOS/assets
 mkdir -p output
 cmake `pwd`/src
 make

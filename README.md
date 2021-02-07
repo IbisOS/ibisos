@@ -1,5 +1,5 @@
 # IbisOS
-To build this OS (yes, the name is a joke), run
+To build this OS, run
 `make install` and `make all`
 
 This is necessary because it downloads and builds the cross-compiler too.

@@ -1,6 +1,8 @@
 #include <malloc/malloc.h>
 #include <vesa/vesa.h>
 #include <math.h>
+#include <fonts/psf.h>
+
 struct vesa_mode_info vesa_mode[1];
 
 void draw_pixel(uint32_t *framebuffer, int x, int y, uint32_t color)
@@ -33,5 +35,7 @@ void init_vesa(unsigned int* multiboot_header)
             draw_pixel(vesa_mode[0].framebuffer, x, y, 0x992040);
         }
     }
-
+    int scan_line = vesa_mode[0].width;
+    //Initialize PC Screen Font
+    init_psf(vesa_mode[0].framebuffer, scan_line);
 }

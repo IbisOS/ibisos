@@ -1,5 +1,4 @@
 libs/
-assets/
 output/
 .vscode/
 CMakeCache.txt

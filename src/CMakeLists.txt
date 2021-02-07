@@ -22,7 +22,7 @@ set(CMAKE_C_COMPILER "clang")
 set(CMAKE_C_FLAGS "-ffreestanding -O2 -Wall --target=${TARGET_BUILD} -march=${TARGET_ARCH}")
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_COMPILER "clang++")
-set(CMAKE_CXX_FLAGS "-ffreestanding -O2 -Wall -fno-exceptions -fno-rtti -nostdlib -nostdinc --target=${TARGET_BUILD} -march=${TARGET_ARCH}")
+set(CMAKE_CXX_FLAGS "-ffreestanding -O2 -Wall -fno-exceptions -fno-rtti -nostdlib -nostdinc --target=${TARGET_BUILD} -march=${TARGET_ARCH} ./font.o")
 set(CMAKE_ASM_NASM_OBJECT_FORMAT "elf32")
 set(CMAKE_ASM_NASM_COMPILE_OBJECT "<CMAKE_ASM_NASM_COMPILER> -f ${CMAKE_ASM_NASM_OBJECT_FORMAT} -o <OBJECT> <SOURCE>")
 
