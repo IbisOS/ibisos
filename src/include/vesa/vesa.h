@@ -1,6 +1,9 @@
 #ifndef VESA_H
 #define VESA_H
 #include <stdint.h>
+#include <malloc/malloc.h>
+#include <math.h>
+#include <fonts/psf.h>
 
 struct vesa_mode_info
 {

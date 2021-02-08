@@ -186,6 +186,33 @@ calloc/calloc.cpp.s:
 	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/calloc/calloc.cpp.s
 .PHONY : calloc/calloc.cpp.s
 
+debug/debug.o: debug/debug.cpp.o
+
+.PHONY : debug/debug.o
+
+# target to build an object file
+debug/debug.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/debug/debug.cpp.o
+.PHONY : debug/debug.cpp.o
+
+debug/debug.i: debug/debug.cpp.i
+
+.PHONY : debug/debug.i
+
+# target to preprocess a source file
+debug/debug.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/debug/debug.cpp.i
+.PHONY : debug/debug.cpp.i
+
+debug/debug.s: debug/debug.cpp.s
+
+.PHONY : debug/debug.s
+
+# target to generate assembly for a file
+debug/debug.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/debug/debug.cpp.s
+.PHONY : debug/debug.cpp.s
+
 devices/pci.o: devices/pci.cpp.o
 
 .PHONY : devices/pci.o
@@ -688,6 +715,9 @@ help:
 	@echo "... calloc/calloc.o"
 	@echo "... calloc/calloc.i"
 	@echo "... calloc/calloc.s"
+	@echo "... debug/debug.o"
+	@echo "... debug/debug.i"
+	@echo "... debug/debug.s"
 	@echo "... devices/pci.o"
 	@echo "... devices/pci.i"
 	@echo "... devices/pci.s"

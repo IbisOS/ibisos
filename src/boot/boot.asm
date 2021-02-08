@@ -6,7 +6,7 @@ MAGIC equ 0x1BADB002
 CHECKSUM equ -(MAGIC + FLAGS)
 WIDTH equ 1024
 HEIGHT equ 768
-BPP equ 32
+BPP equ 128
 TEXT equ 0
 ;Section for multiboot information
 section .multiboot

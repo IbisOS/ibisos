@@ -1,7 +1,4 @@
-#include <malloc/malloc.h>
 #include <vesa/vesa.h>
-#include <math.h>
-#include <fonts/psf.h>
 
 struct vesa_mode_info vesa_mode[1];
 

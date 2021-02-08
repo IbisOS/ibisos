@@ -1,4 +1,5 @@
 #include <fonts/psf.h>
+#include <vesa/vesa.h>
 uint16_t *unicode;
 uint32_t *framebuffer;
 //Create scan line
@@ -27,13 +28,13 @@ void put_char(unsigned short int c, int cx, int cy, uint32_t fg, uint32_t bg)
         (cy * (font->width+1) * 4);
     /* finally display pixels according to the bitmap */
     int x,y, line,mask;
-    for(y=0;y<=font->height;y++){
+    for(y=cy;y<font->height + cy;y++){
         /* save the starting position of the line */
         line=offs;
-        mask=1<<(font->width);
+        mask=1<<(font->width - 1);
         /* display a row */
-        for(x=0;x<=font->width;x++){
-            *((uint32_t*)(framebuffer + line)) = ((int)*glyph) & (mask) ? fg : bg;
+        for(x=cx;x<font->width + cx;x++){
+            draw_pixel(framebuffer, x, y, ((int)*glyph) & (mask) ? fg : bg);
             /* adjust to the next pixel */
             mask >>= 1;
             line += 4;
@@ -46,11 +47,13 @@ void put_char(unsigned short int c, int cx, int cy, uint32_t fg, uint32_t bg)
 
 void write_string(const char* text, int x, int y, uint32_t fg, uint32_t bg)
 {
+    int original_x = x;
     //Loop through the text
     for(size_t idx = 0; idx < strlen(text); idx++)
     {
+        x += 8;
         //Draw character at idx
-        put_char(text[idx], x, y + idx, fg, bg);
+        put_char(text[idx], x, y, fg, bg);
     }
 }
 

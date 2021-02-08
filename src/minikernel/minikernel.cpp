@@ -6,7 +6,7 @@
 #include <graphics/graphics.h>
 #include <sys/portio.hpp>
 #include <vfs/dev.h>
-#include <fonts/psf.h>
+#include <debug/debug.h>
 
 extern "C" void initiate_mini_kernel(unsigned int *multiboot_struct);
 
@@ -20,6 +20,6 @@ void initiate_mini_kernel(unsigned int *multiboot_struct)
     init_vesa(multiboot_struct);
     //Initialize all PCI devices
     initialize_pci_devices();
-    //Write a test string
-    write_string("Welcome to IbisOS", 1, 1, (uint32_t) 0xFFFFFF, (uint32_t) 0x992040);
+    //Write out a hello!
+    debug("Welcome to IbisOS!");
 }
