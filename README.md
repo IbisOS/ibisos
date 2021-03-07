@@ -2,7 +2,7 @@
 The IbisOS Source Code Guide
 
 Step1, How in the hell do I compile this OS?
-well you need to install xorriso, clang, nasm and cmake as well as grub-pc in order to compile the OS, it is reccomended that you use a Linux or BSD distro or just any Unix/Unix-like Operating System like Mac OS, to git clone simply copy the repository link and go into your file manager and right click and open in terminal in the location you want to put the IbisOS source code in, then run git clone (link here) dont put the parenthesis, thats just for example, now that you have done that just enter the IbisOS folder and right click and open in terminal, run chmod a+x ./build.sh then run ./build.sh
+well you need to install xorriso, clang, nasm and cmake as well as mtools in order to compile the OS, it is reccomended that you use a Linux or BSD distro or just any Unix/Unix-like Operating System like Mac OS, to git clone simply copy the repository link and go into your file manager and right click and open in terminal in the location you want to put the IbisOS source code in, then run git clone (link here) dont put the parenthesis, thats just for example, now that you have done that just enter the IbisOS folder and right click and open in terminal, run chmod a+x ./build.sh then run ./build.sh
 
 Step2, You Have Done it! enjoy that sweet sweet source code and maybe start development on your own IbisOS distribution, we also have a dedicated Discord server called the TINAOS Discord Server, TINAOS was the first name me and 1dime came up with for the OS ThisIsNotAnOperatingSystem TINAOS, lol the name was a joke but anyway here is the link https://discord.gg/DWtFsMm enjoy! :)
 
