@@ -1,0 +1,10 @@
+#ifndef CSTDDEF
+#define CSTDDEF
+#include <c/stddef.h>
+
+namespace std
+{
+    using ::uint;
+    using ::size_t;
+};
+#endif

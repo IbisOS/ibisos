@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dashiel/Desktop/Projects/Fun/IbisOS/src/main.cpp
+cstddef
+-
+cstdint
+-
+
+src/include/c/stddef.h
+
+src/include/c/stdint.h
+
+src/include/cstddef
+c/stddef.h
+-
+
+src/include/cstdint
+c/stdint.h
+-
+
