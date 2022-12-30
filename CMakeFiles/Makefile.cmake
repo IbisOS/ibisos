@@ -50,6 +50,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/qemu.dir/DependInfo.cmake"
   "CMakeFiles/iso.dir/DependInfo.cmake"
   "CMakeFiles/IbisOS.bin.dir/DependInfo.cmake"
   )

@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named qemu
+
+# Build rule for target.
+qemu: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 qemu
+.PHONY : qemu
+
+# fast build rule for target.
+qemu/fast:
+	$(MAKE) -f CMakeFiles/qemu.dir/build.make CMakeFiles/qemu.dir/build
+.PHONY : qemu/fast
+
+#=============================================================================
 # Target rules for targets named iso
 
 # Build rule for target.
@@ -145,6 +158,33 @@ asm/i686/boot.asm.o:
 	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/asm/i686/boot.asm.o
 .PHONY : asm/i686/boot.asm.o
 
+debugger.o: debugger.cpp.o
+
+.PHONY : debugger.o
+
+# target to build an object file
+debugger.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/debugger.cpp.o
+.PHONY : debugger.cpp.o
+
+debugger.i: debugger.cpp.i
+
+.PHONY : debugger.i
+
+# target to preprocess a source file
+debugger.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/debugger.cpp.i
+.PHONY : debugger.cpp.i
+
+debugger.s: debugger.cpp.s
+
+.PHONY : debugger.s
+
+# target to generate assembly for a file
+debugger.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/debugger.cpp.s
+.PHONY : debugger.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -172,6 +212,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+string.o: string.cpp.o
+
+.PHONY : string.o
+
+# target to build an object file
+string.cpp.o:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/string.cpp.o
+.PHONY : string.cpp.o
+
+string.i: string.cpp.i
+
+.PHONY : string.i
+
+# target to preprocess a source file
+string.cpp.i:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/string.cpp.i
+.PHONY : string.cpp.i
+
+string.s: string.cpp.s
+
+.PHONY : string.s
+
+# target to generate assembly for a file
+string.cpp.s:
+	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/string.cpp.s
+.PHONY : string.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -179,13 +246,20 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... qemu"
 	@echo "... rebuild_cache"
 	@echo "... iso"
 	@echo "... IbisOS.bin"
 	@echo "... asm/i686/boot.o"
+	@echo "... debugger.o"
+	@echo "... debugger.i"
+	@echo "... debugger.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... string.o"
+	@echo "... string.i"
+	@echo "... string.s"
 .PHONY : help
 
 

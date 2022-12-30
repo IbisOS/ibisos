@@ -63,10 +63,38 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/qemu.dir/clean
 clean: CMakeFiles/iso.dir/clean
 clean: CMakeFiles/IbisOS.bin.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/qemu.dir
+
+# All Build rule for target.
+CMakeFiles/qemu.dir/all:
+	$(MAKE) -f CMakeFiles/qemu.dir/build.make CMakeFiles/qemu.dir/depend
+	$(MAKE) -f CMakeFiles/qemu.dir/build.make CMakeFiles/qemu.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=7 "Built target qemu"
+.PHONY : CMakeFiles/qemu.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/qemu.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/qemu.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles 0
+.PHONY : CMakeFiles/qemu.dir/rule
+
+# Convenience name for target.
+qemu: CMakeFiles/qemu.dir/rule
+
+.PHONY : qemu
+
+# clean rule for target.
+CMakeFiles/qemu.dir/clean:
+	$(MAKE) -f CMakeFiles/qemu.dir/build.make CMakeFiles/qemu.dir/clean
+.PHONY : CMakeFiles/qemu.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/iso.dir
@@ -75,7 +103,7 @@ clean: CMakeFiles/IbisOS.bin.dir/clean
 CMakeFiles/iso.dir/all:
 	$(MAKE) -f CMakeFiles/iso.dir/build.make CMakeFiles/iso.dir/depend
 	$(MAKE) -f CMakeFiles/iso.dir/build.make CMakeFiles/iso.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=4 "Built target iso"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=6 "Built target iso"
 .PHONY : CMakeFiles/iso.dir/all
 
 # Build rule for subdir invocation for target.
@@ -102,12 +130,12 @@ CMakeFiles/iso.dir/clean:
 CMakeFiles/IbisOS.bin.dir/all:
 	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/depend
 	$(MAKE) -f CMakeFiles/IbisOS.bin.dir/build.make CMakeFiles/IbisOS.bin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=1,2,3 "Built target IbisOS.bin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=1,2,3,4,5 "Built target IbisOS.bin"
 .PHONY : CMakeFiles/IbisOS.bin.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/IbisOS.bin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/IbisOS.bin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles 0
 .PHONY : CMakeFiles/IbisOS.bin.dir/rule

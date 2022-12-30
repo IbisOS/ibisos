@@ -14,7 +14,9 @@ set(CMAKE_ASM_NASM_TARGET_INCLUDE_PATH
   "src/include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/dashiel/Desktop/Projects/Fun/IbisOS/src/debugger.cpp" "/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles/IbisOS.bin.dir/debugger.cpp.o"
   "/home/dashiel/Desktop/Projects/Fun/IbisOS/src/main.cpp" "/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles/IbisOS.bin.dir/main.cpp.o"
+  "/home/dashiel/Desktop/Projects/Fun/IbisOS/src/string.cpp" "/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles/IbisOS.bin.dir/string.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

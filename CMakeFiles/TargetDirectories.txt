@@ -1,4 +1,5 @@
 /home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles/edit_cache.dir
+/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles/qemu.dir
 /home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles/rebuild_cache.dir
 /home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles/iso.dir
 /home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles/IbisOS.bin.dir

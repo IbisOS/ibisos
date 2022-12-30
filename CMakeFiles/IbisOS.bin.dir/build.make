@@ -57,9 +57,22 @@ include CMakeFiles/IbisOS.bin.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/IbisOS.bin.dir/flags.make
 
+CMakeFiles/IbisOS.bin.dir/debugger.cpp.o: CMakeFiles/IbisOS.bin.dir/flags.make
+CMakeFiles/IbisOS.bin.dir/debugger.cpp.o: src/debugger.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/IbisOS.bin.dir/debugger.cpp.o"
+	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IbisOS.bin.dir/debugger.cpp.o -c /home/dashiel/Desktop/Projects/Fun/IbisOS/src/debugger.cpp
+
+CMakeFiles/IbisOS.bin.dir/debugger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IbisOS.bin.dir/debugger.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dashiel/Desktop/Projects/Fun/IbisOS/src/debugger.cpp > CMakeFiles/IbisOS.bin.dir/debugger.cpp.i
+
+CMakeFiles/IbisOS.bin.dir/debugger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IbisOS.bin.dir/debugger.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dashiel/Desktop/Projects/Fun/IbisOS/src/debugger.cpp -o CMakeFiles/IbisOS.bin.dir/debugger.cpp.s
+
 CMakeFiles/IbisOS.bin.dir/main.cpp.o: CMakeFiles/IbisOS.bin.dir/flags.make
 CMakeFiles/IbisOS.bin.dir/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/IbisOS.bin.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/IbisOS.bin.dir/main.cpp.o"
 	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IbisOS.bin.dir/main.cpp.o -c /home/dashiel/Desktop/Projects/Fun/IbisOS/src/main.cpp
 
 CMakeFiles/IbisOS.bin.dir/main.cpp.i: cmake_force
@@ -70,24 +83,41 @@ CMakeFiles/IbisOS.bin.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IbisOS.bin.dir/main.cpp.s"
 	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dashiel/Desktop/Projects/Fun/IbisOS/src/main.cpp -o CMakeFiles/IbisOS.bin.dir/main.cpp.s
 
+CMakeFiles/IbisOS.bin.dir/string.cpp.o: CMakeFiles/IbisOS.bin.dir/flags.make
+CMakeFiles/IbisOS.bin.dir/string.cpp.o: src/string.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/IbisOS.bin.dir/string.cpp.o"
+	clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IbisOS.bin.dir/string.cpp.o -c /home/dashiel/Desktop/Projects/Fun/IbisOS/src/string.cpp
+
+CMakeFiles/IbisOS.bin.dir/string.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IbisOS.bin.dir/string.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dashiel/Desktop/Projects/Fun/IbisOS/src/string.cpp > CMakeFiles/IbisOS.bin.dir/string.cpp.i
+
+CMakeFiles/IbisOS.bin.dir/string.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IbisOS.bin.dir/string.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dashiel/Desktop/Projects/Fun/IbisOS/src/string.cpp -o CMakeFiles/IbisOS.bin.dir/string.cpp.s
+
 CMakeFiles/IbisOS.bin.dir/asm/i686/boot.asm.o: CMakeFiles/IbisOS.bin.dir/flags.make
 CMakeFiles/IbisOS.bin.dir/asm/i686/boot.asm.o: src/asm/i686/boot.asm
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building ASM_NASM object CMakeFiles/IbisOS.bin.dir/asm/i686/boot.asm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building ASM_NASM object CMakeFiles/IbisOS.bin.dir/asm/i686/boot.asm.o"
 	/usr/bin/nasm -f elf32 -o CMakeFiles/IbisOS.bin.dir/asm/i686/boot.asm.o /home/dashiel/Desktop/Projects/Fun/IbisOS/src/asm/i686/boot.asm
 
 # Object files for target IbisOS.bin
 IbisOS_bin_OBJECTS = \
+"CMakeFiles/IbisOS.bin.dir/debugger.cpp.o" \
 "CMakeFiles/IbisOS.bin.dir/main.cpp.o" \
+"CMakeFiles/IbisOS.bin.dir/string.cpp.o" \
 "CMakeFiles/IbisOS.bin.dir/asm/i686/boot.asm.o"
 
 # External object files for target IbisOS.bin
 IbisOS_bin_EXTERNAL_OBJECTS =
 
+output/i686-pc-none-elf/isodir/boot/IbisOS.bin: CMakeFiles/IbisOS.bin.dir/debugger.cpp.o
 output/i686-pc-none-elf/isodir/boot/IbisOS.bin: CMakeFiles/IbisOS.bin.dir/main.cpp.o
+output/i686-pc-none-elf/isodir/boot/IbisOS.bin: CMakeFiles/IbisOS.bin.dir/string.cpp.o
 output/i686-pc-none-elf/isodir/boot/IbisOS.bin: CMakeFiles/IbisOS.bin.dir/asm/i686/boot.asm.o
 output/i686-pc-none-elf/isodir/boot/IbisOS.bin: CMakeFiles/IbisOS.bin.dir/build.make
 output/i686-pc-none-elf/isodir/boot/IbisOS.bin: CMakeFiles/IbisOS.bin.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable output/i686-pc-none-elf/isodir/boot/IbisOS.bin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dashiel/Desktop/Projects/Fun/IbisOS/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable output/i686-pc-none-elf/isodir/boot/IbisOS.bin"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/IbisOS.bin.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
