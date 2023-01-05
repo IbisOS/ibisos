@@ -6,17 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/dashiel/Desktop/Projects/Fun/IbisOS/src/string.cpp
-cstring
+/home/dashiel/Desktop/Projects/Fun/IbisOS/src/main.cpp
+debugger
+-
+
+src/include/c/debugger.h
+c/stddef.h
+-
+c/stdint.h
+-
+c/string.h
 -
 
 src/include/c/stddef.h
+
+src/include/c/stdint.h
 
 src/include/c/string.h
 c/stddef.h
 -
 
-src/include/cstring
-c/string.h
+src/include/debugger
+c/debugger.h
 -
 

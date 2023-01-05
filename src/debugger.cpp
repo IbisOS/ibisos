@@ -74,15 +74,20 @@ Prints character and adjusts row and column after
 void putChar(char c)
 {
     if(c == '\n')
-        row += 1;
-    else
-        putEntry(c, terminalColor, column, row);
-    if(++column == WIDTH)
     {
+        row += 1;
         column = 0;
-        if(++row == HEIGHT)
+    }
+    else
+    {
+        putEntry(c, terminalColor, column, row);
+        if(++column == WIDTH)
         {
-            row = 0;
+            column = 0;
+            if(++row == HEIGHT)
+            {
+                row = 0;
+            }
         }
     }
 }
