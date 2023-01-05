@@ -1,0 +1,4 @@
+/home/dashiel/Desktop/OffDriveProjects/IbisOS/CMakeFiles/binutils.dir
+/home/dashiel/Desktop/OffDriveProjects/IbisOS/CMakeFiles/gcc.dir
+/home/dashiel/Desktop/OffDriveProjects/IbisOS/CMakeFiles/edit_cache.dir
+/home/dashiel/Desktop/OffDriveProjects/IbisOS/CMakeFiles/rebuild_cache.dir
