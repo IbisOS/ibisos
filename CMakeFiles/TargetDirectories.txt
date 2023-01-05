@@ -1,0 +1,5 @@
+/home/dashiel/Desktop/OffDriveProjects/IbisOS/CMakeFiles/IbisOS.bin.dir
+/home/dashiel/Desktop/OffDriveProjects/IbisOS/CMakeFiles/iso.dir
+/home/dashiel/Desktop/OffDriveProjects/IbisOS/CMakeFiles/qemu.dir
+/home/dashiel/Desktop/OffDriveProjects/IbisOS/CMakeFiles/edit_cache.dir
+/home/dashiel/Desktop/OffDriveProjects/IbisOS/CMakeFiles/rebuild_cache.dir
