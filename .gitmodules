@@ -1,0 +1,3 @@
+[submodule "compiler/compiler"]
+	path = compiler/compiler
+	url = https://github.com/IbisOS/compiler

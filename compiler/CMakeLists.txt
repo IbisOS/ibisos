@@ -27,17 +27,17 @@ enable_language(ASM_NASM)
 add_custom_target(binutils
                     COMMAND mkdir -p ${BUILD_BINUTILS_DIR}
                     COMMAND cd ${BUILD_BINUTILS_DIR} && ../../binutils/configure --target=${TARGET} --prefix=${OUTPUT_DIR} --with-sysroot --disable-nls --disable-werror
-                    COMMAND make -j4
-                    COMMAND make -j4 install
+                    COMMAND cd ${BUILD_BINUTILS_DIR} && make -j4
+                    COMMAND cd ${BUILD_BINUTILS_DIR} && make -j4 install
                     COMMENT "Builds binutils for cross compiler"
 )
 
 add_custom_target(gcc
                     COMMAND mkdir -p ${BUILD_GCC_DIR}
                     COMMAND cd ${BUILD_GCC_DIR} && ../../gcc/configure --target=${TARGET} --prefix="${OUTPUT_DIR}" --disable-nls --enable-languages=c,c++ --without-headers
-                    COMMAND make -j4 all-gcc
-                    COMMAND make -j4 all-target-libgcc
-                    COMMAND make -j4 install-gcc
-                    COMMAND make -j4 install-target-libgcc
+                    COMMAND cd ${BUILD_GCC_DIR} && make -j4 all-gcc
+                    COMMAND cd ${BUILD_GCC_DIR} && make -j4 all-target-libgcc
+                    COMMAND cd ${BUILD_GCC_DIR} && make -j4 install-gcc
+                    COMMAND cd ${BUILD_GCC_DIR} && make -j4 install-target-libgcc
                     COMMENT "Build GCC for cross compiler"
 )
