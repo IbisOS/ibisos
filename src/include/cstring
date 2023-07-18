@@ -1,9 +1,0 @@
-#ifndef CSTRING
-#define CSTRING
-#include <c/string.h>
-namespace std
-{
-    using ::strlen;
-}
-
-#endif

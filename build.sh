@@ -1,22 +1,22 @@
-#Clear terminal screen
-reset
-if [ ! -f ".setup_done" ]
+#Check if first argument is empty 
+if [ "$1" == "" ]
 then
-    #Install required libraries
-    echo "Installing build-essential, bison, flex, libgmp3-dev, libmpc-dev, libmpfr-dev, texinfo, clang, cmake, nasm, xorriso, mtools, qemu-system, and qemu"
-    sudo apt remove  build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo clang cmake nasm xorriso mtools qemu-system qemu -y 1&>/dev/null
-    echo "Done. Installing other prerequisites..."
-    cd compiler/gcc
-    ./contrib/download_prerequisites
-    echo "Done."
-    echo ''>>.setup_done
+    #Execute this script with x86-64 and x86-64-pc-none-elf as build parameters
+    ./build.sh "x86-64" "x86-64-pc-none-elf"
+else
+    #Create output directories for bootloader, compiler, and os
+    mkdir -p output/$2/bootloader
+    mkdir -p output/$2/compiler
+    mkdir -p output/$2/os
+
+    #Install required programs (nasm and clang)
+    echo "Installing required programs..."
+    sudo apt install -y nasm clang
+    chmod a+x bootloader/build.sh
+
+    #Build everything
+    echo "Building IbisBoot..."
+    nasm -f bin src/bootloader/$1/bootloader.asm -o output/$2/bootloader/bootloader.bin
+
+    qemu-system-x86_64 output/$2/bootloader/bootloader.bin
 fi
-#Build OS from source
-echo "Setting up environment for building..."
-cmake src $*
-echo "Done. Building project..."
-#Make the object files and the iso
-make 1&>/dev/null
-echo "Done. Building ISO file..."
-make iso 1&>/dev/null
-echo "Done."
